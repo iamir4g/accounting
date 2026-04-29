@@ -9,7 +9,8 @@
     "test": "turbo test",
     "format": "prettier -w .",
     "docker:up": "docker compose up --build",
-    "docker:down": "docker compose down -v"
+    "docker:down": "docker compose down",
+    "docker:destroy": "docker compose down -v"
   },
   "devDependencies": {
     "prettier": "^3.5.3",

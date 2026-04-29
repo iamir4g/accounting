@@ -63,6 +63,10 @@ export class InventoryService {
     return items.filter((i) => Number(i.qty) <= Number(i.product.minStock));
   }
 
+  units(tenantDbUrl: string) {
+    return this.prisma(tenantDbUrl).unit.findMany({ orderBy: { nameFa: 'asc' } });
+  }
+
   private validate(dto: CreateInventoryTxnDto) {
     if (dto.type === InventoryTxnTypeDto.IN && !dto.toWarehouseId) {
       throw new BadRequestException('برای IN، toWarehouseId الزامی است');

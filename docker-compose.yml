@@ -51,4 +51,4 @@ services:
 
 volumes:
   pg_data:
-
+    name: accounting_pg_data

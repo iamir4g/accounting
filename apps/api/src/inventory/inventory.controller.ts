@@ -34,5 +34,10 @@ export class InventoryController {
     const lowStock = lowStockRaw === '1' || lowStockRaw === 'true';
     return this.inventory.stock(dbUrl, { warehouseId, lowStock });
   }
-}
 
+  @Get('units')
+  @RequirePermissions('products:read')
+  units(@CurrentTenantDbUrl() dbUrl: string) {
+    return this.inventory.units(dbUrl);
+  }
+}
